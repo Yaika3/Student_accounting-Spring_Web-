@@ -15,28 +15,28 @@ public class FacultyController {
     public FacultyController(FacultyService service) {
         this.service = service;
     }
-    @PostMapping
+    @PostMapping("/FacultyAdd")
     public Faculty add(@RequestBody Faculty faculty){
         return service.add(faculty);
     }
-    @GetMapping
+    @GetMapping("/FacultyGet")
     public Faculty get(@RequestParam long id){
         return  service.get(id);
     }
-    @PutMapping
+    @PutMapping("/FacultyUpdate")
     public Faculty update(@RequestBody Faculty faculty){
-        return update(faculty);
+        return service.update(faculty);
     }
-    @DeleteMapping
+    @DeleteMapping("/FacultyDelete")
     public ResponseEntity delete (@RequestParam long id){
         service.delete(id);
         return ResponseEntity.ok().build();
     }
-    @GetMapping
+    @GetMapping("/FacultyGetAll")
     public ResponseEntity<Collection<Faculty>> getAllFaculty(){
-        return getAllFaculty();
+        return ResponseEntity.ok(service.getAllFaculty());
     }
-    @GetMapping
+    @GetMapping("/FacultyGetColour")
     public ResponseEntity getByColourOrName(@RequestParam String colour, @RequestParam String name){
         if(name!= null && !name.isBlank()){
             return ResponseEntity.ok(service.findByColorOrName(name));

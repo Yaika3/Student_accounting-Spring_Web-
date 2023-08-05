@@ -16,23 +16,24 @@ public class StudentController {
     public StudentController(StudentService service) {
         this.service = service;
     }
+    @PostMapping("/StudentAdd")
     public Student add(@RequestBody Student student){
         return service.add(student);
     }
-    @GetMapping
+    @GetMapping("/StudentGet")
     public Student get(@RequestParam long id){
         return  service.get(id);
     }
-    @PutMapping
+    @PutMapping("/StudentUpdate")
     public Student update(@RequestBody Student student){
-        return update(student);
+        return service.update(student);
     }
-    @DeleteMapping
+    @DeleteMapping("/StudentDelete")
     public ResponseEntity delete (@RequestParam long id){
         service.delete(id);
         return ResponseEntity.ok().build();
     }
-    @GetMapping
+    @GetMapping("/StudentGetAge")
     public Student getByAge(@RequestParam long age){
         return service.getByAge(age);
     }
