@@ -1,6 +1,5 @@
 package controller;
 
-import model.Faculty;
 import model.Student;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -36,5 +35,9 @@ public class StudentController {
     @GetMapping("/StudentGetAge")
     public Student getByAge(@RequestParam long age){
         return service.getByAge(age);
+    }
+    @GetMapping("/StudentGetAll")
+    public Collection<Student> getAllStudent(){
+        return service.getAllStudent();
     }
 }

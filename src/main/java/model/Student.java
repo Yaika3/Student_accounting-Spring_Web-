@@ -1,8 +1,6 @@
 package model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 @Entity
@@ -10,6 +8,8 @@ public class Student {
     @Id
     @GeneratedValue
     private long id;
+    @OneToMany( mappedBy= "studentCollection")
+    private Faculty faculty;
     private String name;
     private Long age;
 

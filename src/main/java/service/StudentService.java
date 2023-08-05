@@ -27,7 +27,7 @@ public class StudentService {
         studentRepository.deleteById(id);
     }
     public Student getByAge (long age){
-         return studentRepository.getReferenceById(age);
+         return (Student) studentRepository.findByAgeBetween(age,age);
     }
     public Collection<Student> getAllStudent(){
         return studentRepository.findAll();

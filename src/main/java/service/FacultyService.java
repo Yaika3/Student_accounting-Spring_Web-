@@ -27,7 +27,7 @@ public class FacultyService {
         facultyRepository.deleteById(id);
     }
     public Collection<Faculty> findByColorOrName(String part){
-        return facultyRepository.findByNameContains(part);
+        return facultyRepository.findByNameOrColourIgnoreCase(part);
     }
     public Collection<Faculty> getAllFaculty(){
         return facultyRepository.findAll();
