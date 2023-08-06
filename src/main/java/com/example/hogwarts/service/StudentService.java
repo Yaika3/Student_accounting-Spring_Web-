@@ -1,9 +1,8 @@
-package service;
+package com.example.hogwarts.service;
 
-import model.Faculty;
-import model.Student;
+import com.example.hogwarts.model.Student;
 import org.springframework.stereotype.Service;
-import repositories.StudentRepository;
+import com.example.hogwarts.repositories.StudentRepository;
 
 import java.util.Collection;
 

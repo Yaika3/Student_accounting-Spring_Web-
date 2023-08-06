@@ -1,8 +1,8 @@
-package service;
+package com.example.hogwarts.service;
 
-import model.Faculty;
+import com.example.hogwarts.model.Faculty;
 import org.springframework.stereotype.Service;
-import repositories.FacultyRepository;
+import com.example.hogwarts.repositories.FacultyRepository;
 
 import java.util.Collection;
 
@@ -27,7 +27,7 @@ public class FacultyService {
         facultyRepository.deleteById(id);
     }
     public Collection<Faculty> findByColorOrName(String part){
-        return facultyRepository.findByNameOrColourIgnoreCase(part);
+        return facultyRepository.findByNameOrColourIgnoreCase(part,part);
     }
     public Collection<Faculty> getAllFaculty(){
         return facultyRepository.findAll();

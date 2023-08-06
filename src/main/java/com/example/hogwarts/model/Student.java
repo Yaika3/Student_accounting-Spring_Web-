@@ -1,4 +1,4 @@
-package model;
+package com.example.hogwarts.model;
 
 import jakarta.persistence.*;
 
@@ -8,7 +8,8 @@ public class Student {
     @Id
     @GeneratedValue
     private long id;
-    @OneToMany( mappedBy= "studentCollection")
+    @ManyToOne
+    @JoinColumn(name = "faculty_id")
     private Faculty faculty;
     private String name;
     private Long age;
