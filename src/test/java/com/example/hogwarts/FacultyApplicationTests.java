@@ -64,6 +64,15 @@ public class FacultyApplicationTests {
         Assertions.assertThat(studentResponseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
 
     }
+    @Test
+    public void testPostFaculty ()throws  Exception{
+        Faculty faculty= new Faculty();
+        faculty.setId(1L);
+        faculty.setName("Lee");
+        Assertions
+                .assertThat(this.restTemplate.postForObject("http://localhost: " + port + "/faculty",faculty,String.class))
+                .isNotNull();
+    }
 
     @BeforeEach
     void setUp(){

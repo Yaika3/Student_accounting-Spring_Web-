@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import com.example.hogwarts.repositories.StudentRepository;
 
 import java.util.Collection;
+import java.util.List;
 
 @Service
 public class StudentService {
@@ -30,5 +31,9 @@ public class StudentService {
     }
     public Collection<Student> getAllStudent(){
         return studentRepository.findAll();
+    }
+
+    public List<Student> getAllStudentNumber (){
+        return studentRepository.getAllStudentNumber();
     }
 }

@@ -70,6 +70,16 @@ class HogwartsApplicationTests {
 
     }
 
+    @Test
+    public void testPostStudent ()throws  Exception{
+        Student student= new Student();
+        student.setId(1L);
+        student.setName("Lee");
+        Assertions
+                .assertThat(this.restTemplate.postForObject("http://localhost: " + port + "/student",student,String.class))
+                .isNotNull();
+    }
+
     @BeforeEach
     void setUp(){
         studentRepository.deleteAll();
