@@ -76,3 +76,4 @@ public class Avatar {
                 '}';
     }
 }
+// комент для пула

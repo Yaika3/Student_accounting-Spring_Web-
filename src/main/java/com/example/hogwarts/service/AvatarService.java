@@ -10,3 +10,4 @@ public interface AvatarService {
 
     Avatar findAvatar (Long studentId );
 }
+// комент для пула

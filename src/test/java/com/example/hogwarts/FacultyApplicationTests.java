@@ -79,3 +79,4 @@ public class FacultyApplicationTests {
         facultyRepository.deleteAll();
     }
 }
+// комент для пула
