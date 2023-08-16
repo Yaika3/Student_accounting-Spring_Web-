@@ -4,7 +4,10 @@ import com.example.hogwarts.controller.FacultyController;
 import com.example.hogwarts.model.Faculty;
 import com.example.hogwarts.model.Student;
 import com.example.hogwarts.repositories.FacultyRepository;
+import com.example.hogwarts.repositories.StudentRepository;
+import com.example.hogwarts.service.AvatarService;
 import com.example.hogwarts.service.FacultyService;
+import com.example.hogwarts.service.StudentService;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -28,12 +31,17 @@ public class FacultyWebMvcTest {
     @Autowired
     private MockMvc mockMvc;
     @MockBean
+    private StudentRepository studentRepository;
+    @MockBean
     private FacultyRepository facultyRepository;
-    @InjectMocks
-    FacultyController facultyController;
     @SpyBean
-    FacultyService facultyService;
-    private Faculty faculty;
+    private StudentService studentService;
+    @SpyBean
+    private AvatarService avatarService;
+    @SpyBean
+    private FacultyService facultyService;
+    @InjectMocks
+    private FacultyController facultyController;
 
 
     @Test
