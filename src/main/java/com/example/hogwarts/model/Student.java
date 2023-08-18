@@ -1,8 +1,8 @@
 package com.example.hogwarts.model;
 
-import jakarta.persistence.*;
-
+import javax.persistence.*;
 import java.util.Objects;
+
 @Entity
 public class Student {
     @Id
@@ -52,8 +52,9 @@ public class Student {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Student student)) return false;
-        return id == student.id && Objects.equals(name, student.name) && Objects.equals(age, student.age);
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return id == student.id && Objects.equals(faculty, student.faculty) && Objects.equals(name, student.name) && Objects.equals(age, student.age);
     }
 
     @Override

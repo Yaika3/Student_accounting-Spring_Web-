@@ -1,8 +1,10 @@
 package com.example.hogwarts.model;
 
-import jakarta.persistence.*;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.util.Arrays;
+
 
 @Entity
 public class Avatar {
@@ -14,8 +16,14 @@ public class Avatar {
     private String mediaType;
 
     @Lob
+    @Type(type="org.hibernate.type.BinaryType")
     private byte[] data;
-    public Avatar(){}
+
+    @OneToOne
+    private Student student;
+
+    public Avatar() {
+    }
 
     public Avatar(Long id, String filePath, long fileSize, String mediaType, byte[] data) {
         this.id = id;
@@ -63,6 +71,14 @@ public class Avatar {
 
     public void setData(byte[] data) {
         this.data = data;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
     @Override

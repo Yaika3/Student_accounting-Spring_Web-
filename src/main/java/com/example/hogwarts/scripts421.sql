@@ -14,3 +14,4 @@ id INTEGER PRIMARY KEY;
 name TEXT;
 colour TEXT;
 )
+// ком для пула
