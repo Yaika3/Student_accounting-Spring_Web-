@@ -1,17 +1,28 @@
-CREATE TABLE student (
-	id INTEGER PRIMARY KEY;
-	age INTEGER;
-	name TEXT;
-    ADD CONSTRAINT age_constraint CHECK (age > 16);
-	ADD CONSTRAINT age_constraint DEFAULT 20;
-	name TEXT NOT NULL,
-	name TEXT UNIQUE
-	
-);
+ALTER TABLE student
+ADD constraint age CHECK (age > 16);
 
-CREATE TABLE faculty (
-id INTEGER PRIMARY KEY;
-name TEXT;
-colour TEXT;
-)
-// ком для пула
+ALTER TABLE student
+ALTER COLUMN name SET NOT NULL;
+	
+ALTER TABLE faculty
+ADD CONSTRAINT name_colour  UNIQUE (name,colour);
+	
+ALTER TABLE student
+ADD constraint age DEFAULT (20);
+
+
+CREATE TABLE people
+age TEXT,
+name TEXT,
+license TEXT PRIMARY KEY,
+TEXT REFERENCES car (license)
+
+CREATE TABLE car
+model TEXT
+cost TEXT;
+
+SELECT student.name, student.age, faculty.name FROM student NNER JOIN faculty
+ON student.name = faculty.name;
+
+
+	
