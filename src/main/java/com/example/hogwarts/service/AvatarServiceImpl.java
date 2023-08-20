@@ -3,7 +3,7 @@ package com.example.hogwarts.service;
 import com.example.hogwarts.model.Avatar;
 import com.example.hogwarts.model.Student;
 import com.example.hogwarts.repositories.AvatarRepository;
-import lombok.Value;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import javax.persistence.EntityNotFoundException;

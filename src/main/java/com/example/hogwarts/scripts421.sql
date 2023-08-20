@@ -21,7 +21,7 @@ CREATE TABLE car
 model TEXT
 cost TEXT;
 
-SELECT student.name, student.age, faculty.name FROM student NNER JOIN faculty
+SELECT student.name, student.age, faculty.name FROM student INER JOIN faculty
 ON student.name = faculty.name;
 
 
