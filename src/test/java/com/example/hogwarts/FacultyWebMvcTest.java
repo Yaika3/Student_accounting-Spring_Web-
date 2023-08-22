@@ -59,7 +59,7 @@ public class FacultyWebMvcTest {
         student.setAge(Long.valueOf(colour));
 
         when(facultyRepository.save(any(Faculty.class))).thenReturn(faculty);
-        when(facultyRepository.findAllById(any(Long.class))).thenReturn(Optional.of(student));
+        when(facultyRepository.findAllById(List<T> findAllById(Iterable<ID> ids));
 
         mockMvc.perform(MockMvcRequestBuilders
                         .post("/student")

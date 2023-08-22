@@ -18,6 +18,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.util.Optional;
 
+import static javax.swing.text.html.parser.DTDConstants.ID;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -36,8 +37,8 @@ public class StudentWebMvcTest {
     
     @SpyBean
     private StudentService studentService;
-    
-    
+
+
     @Test
     public void saveStudentTest() throws Exception{
         final String name = " Nick ";
@@ -53,7 +54,7 @@ public class StudentWebMvcTest {
         student.setAge(age);
         
         when(studentRepository.save(any(Student.class))).thenReturn(student);
-        when(studentRepository.findAllById(any(Long.class))).thenReturn(Optional.of(student));
+        when(studentRepository.findAllById(List<T> findAllById(Iterable<ID> ids);
 
         mockMvc.perform(MockMvcRequestBuilders
                 .post("/student")
@@ -88,7 +89,7 @@ public class StudentWebMvcTest {
     }
 
 
-    
+
 
 }
 // комент для пула

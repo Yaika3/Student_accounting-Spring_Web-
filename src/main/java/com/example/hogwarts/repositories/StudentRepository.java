@@ -15,4 +15,3 @@ public interface StudentRepository extends JpaRepository<Student,Long> {
     List<Student> getAllStudentNumber();
 
 }
-// комент для пула
