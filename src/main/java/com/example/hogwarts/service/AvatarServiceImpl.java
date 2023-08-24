@@ -4,12 +4,14 @@ import com.example.hogwarts.model.Avatar;
 import com.example.hogwarts.model.Student;
 import com.example.hogwarts.repositories.AvatarRepository;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import javax.persistence.EntityNotFoundException;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
 import java.util.Objects;
 
 import static java.nio.file.StandardOpenOption.CREATE_NEW;
@@ -71,5 +73,10 @@ public class AvatarServiceImpl implements AvatarService {
         return Path.of(avatarsDir, student.getId() + "-" + student.getName() + "." +
                 getExtensions(Objects.requireNonNull(fileName)));
     }
+    public List<Avatar> getAllAvatar(Integer pegeNumber, Integer pageSize){
+        PageRequest pageRequest = PageRequest.of(pegeNumber - 1,pageSize);
+        return avatarRepository.findAll(pageRequest).getContent();
+    }
+
 }
 
