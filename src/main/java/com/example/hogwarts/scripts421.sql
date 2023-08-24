@@ -8,7 +8,8 @@ ALTER TABLE faculty
 ADD CONSTRAINT name_colour  UNIQUE (name,colour);
 	
 ALTER TABLE student
-ADD constraint age DEFAULT (20);
+alter column age set DEFAULT (20);
+
 
 
 CREATE TABLE people
