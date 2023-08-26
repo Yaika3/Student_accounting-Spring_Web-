@@ -8,6 +8,7 @@ import com.example.hogwarts.repositories.StudentRepository;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class StudentService {
@@ -40,5 +41,23 @@ public class StudentService {
     public List<Student> getAllStudentNumber (){
         return studentRepository.getAllStudentNumber();
     }
+
+    public List<String> getNameStartsA (){
+        return studentRepository.
+                findAll()
+                .stream()
+                .map(Student ::getName)
+                .map(String::toUpperCase)
+                .filter(name -> name.startsWith("A"))
+                .sorted()
+                .collect(Collectors.toList());}
+
+    public double getStudentAvgAge() {
+        return studentRepository.findAll()
+                .stream()
+                .mapToInt(Student::getAge)
+                .average()
+                .orElse(0d);
+    }
+
 }
-// комент для пула

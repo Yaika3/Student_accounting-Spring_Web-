@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import com.example.hogwarts.repositories.FacultyRepository;
 
 import java.util.Collection;
+import java.util.Comparator;
 
 @Service
 public class FacultyService {
@@ -32,4 +33,13 @@ public class FacultyService {
     public Collection<Faculty> getAllFaculty(){
         return facultyRepository.findAll();
     }
+
+    public String longestName(){
+       return facultyRepository.findAll()
+                .stream()
+                .map(Faculty::getName)
+                .max(Comparator.naturalOrder())
+               .orElse(null);
+    }
+
 }

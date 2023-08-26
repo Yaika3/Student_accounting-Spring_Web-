@@ -15,15 +15,21 @@ alter column age set DEFAULT (20);
 CREATE TABLE people
 age TEXT,
 name TEXT,
+car TEXT,
 license TEXT PRIMARY KEY,
-TEXT REFERENCES car (license)
+car_people TEXT REFERENCES car_people (model);
 
-CREATE TABLE car
-model TEXT
+CREATE TABLE car_people
+model TEXT PRIMARY KEY,
+brand TEXT,
 cost TEXT;
 
 SELECT student.name, student.age, faculty.name FROM student INER JOIN faculty
 ON student.name = faculty.name;
+
+//avatar
+SELECT student.name, FROM student INER JOIN avatar
+ON avatar. = ;
 
 
 	
