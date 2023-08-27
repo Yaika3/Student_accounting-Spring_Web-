@@ -28,11 +28,11 @@ create table driver(
 )
 
 SELECT student.name, student.age, faculty.name FROM student INNER JOIN faculty
-ON student.name = faculty.name;
+ON student.name = faculty.name
 
-//avatar
+
 SELECT student.name, FROM student INNER JOIN avatar
-ON avatar. = ;
+ON avatar s.id =a.student_id
 
 
 	
