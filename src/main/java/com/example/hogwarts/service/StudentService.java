@@ -65,7 +65,7 @@ public class StudentService {
         logger.info("Метод getStudentAvgAge запущен");
         return studentRepository.findAll()
                 .stream()
-                .mapToInt(student -> Math.toIntExact(student.getAge()))
+                .mapToLong(Student::getAge)
                 .average()
                 .orElse(0d);
     }
