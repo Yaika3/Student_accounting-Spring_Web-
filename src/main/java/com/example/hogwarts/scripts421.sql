@@ -12,23 +12,26 @@ alter column age set DEFAULT (20);
 
 
 
-CREATE TABLE people
-age TEXT,
-name TEXT,
-car TEXT,
-license TEXT PRIMARY KEY,
-car_people TEXT REFERENCES car_people (model);
+create table car(
+    id int primary key,
+    company varchar,
+    model varchar,
+    price int
+)
 
-CREATE TABLE car_people
-model TEXT PRIMARY KEY,
-brand TEXT,
-cost TEXT;
+create table driver(
+    id int primary key,
+    name varchar,
+    age int,
+    license boolean,
+    car_id int references car(id)
+)
 
-SELECT student.name, student.age, faculty.name FROM student INER JOIN faculty
+SELECT student.name, student.age, faculty.name FROM student INNER JOIN faculty
 ON student.name = faculty.name;
 
 //avatar
-SELECT student.name, FROM student INER JOIN avatar
+SELECT student.name, FROM student INNER JOIN avatar
 ON avatar. = ;
 
 
