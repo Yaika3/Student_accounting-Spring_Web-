@@ -9,6 +9,7 @@ import com.example.hogwarts.repositories.StudentRepository;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -80,4 +81,34 @@ public class StudentService {
         return studentRepository.getLastStudents();
     }
 
-}
+    public void printUnsync(){
+        var students = studentRepository.findAll();
+
+        System.out.println(students.get(0));
+        System.out.println(students.get(1));
+
+        new Thread(() ->{
+            System.out.println(students.get(2));
+            System.out.println(students.get(3));
+        }).start();
+        new Thread(() ->{
+            System.out.println(students.get(4));
+            System.out.println(students.get(5));
+        }).start();
+        new Thread(() ->{
+            print(students.get(2));
+            print(students.get(3));
+        }).start();
+        new Thread(() ->{
+            print(students.get(4));
+            print(students.get(5));
+        }).start();
+    }
+
+    public synchronized void print (Student o){
+            System.out.println(o.toString());
+        }
+
+    }
+
+
