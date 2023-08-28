@@ -11,7 +11,17 @@ import java.util.List;
 public interface StudentRepository extends JpaRepository<Student,Long> {
 
     public Collection<Student> findByAgeBetween(Long age, Long age2);
-    @Query(value = "SELECT FROM hogwarts, SUM student ", nativeQuery = true)
+    @Query(value = "select COUNT(*) from student ", nativeQuery = true)
     List<Student> getAllStudentNumber();
+
+
+    @Query(value = "select COUNT(*) from student ", nativeQuery = true)
+    int getCount();
+    @Query(value = "select AVG(age) from student ", nativeQuery = true)
+    int getAverageAge();
+    @Query(value = "select * from  student order by id desc limit 5 ", nativeQuery = true)
+    List <Student> getLastStudents();
+
+
 
 }

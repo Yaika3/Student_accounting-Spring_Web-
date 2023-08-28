@@ -70,4 +70,14 @@ public class StudentService {
                 .orElse(0d);
     }
 
+    public int getAverageAge(){
+        return studentRepository.getAverageAge();
+    }
+    public int getStudentCount(){
+        return studentRepository.getCount();
+    }
+    public List <Student> getLastStudents(){
+        return studentRepository.getLastStudents();
+    }
+
 }
