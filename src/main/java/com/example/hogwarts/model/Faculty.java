@@ -1,10 +1,9 @@
 package com.example.hogwarts.model;
 
-
-import jakarta.persistence.*;
-
+import javax.persistence.*;
 import java.util.Collection;
 import java.util.Objects;
+
 @Entity
 public class Faculty {
     @Id
@@ -52,8 +51,9 @@ public class Faculty {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Faculty faculty)) return false;
-        return id == faculty.id && Objects.equals(name, faculty.name) && Objects.equals(colour, faculty.colour);
+        if (o == null || getClass() != o.getClass()) return false;
+        Faculty faculty = (Faculty) o;
+        return id == faculty.id && Objects.equals(studentCollection, faculty.studentCollection) && Objects.equals(name, faculty.name) && Objects.equals(colour, faculty.colour);
     }
 
     @Override

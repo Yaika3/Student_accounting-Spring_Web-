@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import com.example.hogwarts.service.StudentService;
 
 import java.util.Collection;
+import java.util.List;
 
 @RequestMapping("/Student")
 @RestController
@@ -39,5 +40,23 @@ public class StudentController {
     @GetMapping("/StudentGetAll")
     public Collection<Student> getAllStudent(){
         return service.getAllStudent();
+    }
+
+    @GetMapping("/getAllStudentNumber")
+    public List<Student> getAllStudentNumber (){
+        return service.getAllStudentNumber();
+    }
+
+    @GetMapping("/avg-age")
+    public int getAverageAge (){
+        return service.getAverageAge();
+    }
+    @GetMapping("/count")
+    public int getStudentsCount (){
+        return service.getStudentCount();
+    }
+    @GetMapping("/last")
+    public List<Student> getLastStudent (){
+        return service.getLastStudents();
     }
 }
